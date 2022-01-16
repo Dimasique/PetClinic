@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'
-                sh 'sudo docker run -d -p 8083:8080 petclinic:latest'
+                sh 'docker run -d -p 8083:8080 petclinic:latest'
             }
         }        
     }
