@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh './mvnw package'
-                sh 'docker build --tag=petclinic:123'
+                sh 'docker build --tag=petclinic:latest .'
             }
         }
         stage('Push to registry') {
@@ -26,7 +26,6 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'
-                sh 'docker build --tag=petclinic:latest'
                 sh 'docker run -d -p 8083:8080 petclinic:latest'
             }
         }        
